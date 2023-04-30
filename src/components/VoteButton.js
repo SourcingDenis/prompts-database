@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { IconButton, Badge } from '@mui/material';
+import { ThumbUp } from '@mui/icons-material';
 
 const VoteButton = ({ promptId, votes }) => {
   const [voteCount, setVoteCount] = useState(votes);
@@ -9,9 +11,11 @@ const VoteButton = ({ promptId, votes }) => {
   };
 
   return (
-    <button className="vote-button" onClick={handleVote}>
-      Vote ({voteCount})
-    </button>
+    <IconButton onClick={handleVote}>
+      <Badge badgeContent={voteCount} color="primary">
+        <ThumbUp />
+      </Badge>
+    </IconButton>
   );
 };
 
